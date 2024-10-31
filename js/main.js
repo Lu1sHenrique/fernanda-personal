@@ -57,8 +57,8 @@
     });
 
     /*------------------
-		Navigation
-	--------------------*/
+        Navigation
+    --------------------*/
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
@@ -135,6 +135,28 @@
     $('.video-popup').magnificPopup({
         type: 'iframe'
     });
+
+    const video = document.getElementById('video');
+    const playButton = document.getElementById('playButton');
+    const pauseButton = document.getElementById('pauseButton');
+
+    playButton.addEventListener('click', function () {
+        video.play();
+        playButton.style.display = 'none';
+        pauseButton.style.display = 'flex';
+    });
+
+    pauseButton.addEventListener('click', function () {
+        video.pause();
+        playButton.style.display = 'flex';
+        pauseButton.style.display = 'none';
+    });
+
+    video.addEventListener('ended', function () {
+        playButton.style.display = 'flex';
+        pauseButton.style.display = 'none';
+    });
+
 
     /*------------------
         Barfiller
